@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
+#Rails.autoloaders.main.ignore(Rails.root.join('app/junkyard'))
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -16,4 +17,5 @@ module RacketTalk
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+  
 end
