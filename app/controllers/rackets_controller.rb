@@ -1,0 +1,2 @@
+class RacketsController < ApplicationController
+end
