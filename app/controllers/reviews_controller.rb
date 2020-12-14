@@ -8,12 +8,14 @@ class ReviewsController < ApplicationController
 
     def index
         #if it's nested
-        if params[:racket_id]
-        @racket = Racket.find_by_id(params[:racket_id])
-        @reviews = @racket.reviews
+        if params[:racket_id] && Racket.find_by_id(params[:racket_id])
+            @racket = Racket.find_by_id(params[:racket_id])
+            @reviews = @racket.reviews
         else
         #if it's not nested
-        @reviews = Review.all
+            @reviews = Review.all
+        end
+
     end
 
     def create

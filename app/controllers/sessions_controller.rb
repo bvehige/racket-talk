@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session.delete (:user_id)
+        session.delete(:user_id)
         redirect_to '/'
-    end
+      end
 
     def create
         @user = User.find_by(username: params[:user][:username])
