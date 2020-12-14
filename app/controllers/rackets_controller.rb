@@ -1,5 +1,10 @@
 class RacketsController < ApplicationController
 
+    def index
+        @rackets = Racket.all
+    end
+
+    
     def new
      @racket = Racket.new
      @racket.build_brand

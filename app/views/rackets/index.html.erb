@@ -1,0 +1,11 @@
+<h1>All Rackets</h1>
+
+<ol>
+<% @rackets.each do |racket| %>
+    <li>
+    <b><%= racket.brand.name %> <%= racket.racket_name %>  -  </b> 
+        <%= racket.description %>
+    </li>
+    
+    <%end%>
+</ol>
