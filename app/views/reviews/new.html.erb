@@ -1,0 +1,19 @@
+<h1>Add A Review for <%= @review.racket.brand.name%> <%= @review.racket.racket_name%></h1>
+
+<%= form_for(@review) do |f| %>
+    <div>
+    <%= f.label :stars %>
+    <%= f.number_field :stars, min:0, max:5 %>
+    </div>
+    <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    </div
+    <div>
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "25x10" %>
+    </div>
+    <%= f.hidden_field :racket_id %>
+    <br>
+    <%= f.submit %>
+<% end %>
