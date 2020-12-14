@@ -4,7 +4,9 @@
 <% @rackets.each do |racket| %>
     <li>
     <b><%= racket.brand.name %> <%= racket.racket_name %>  -  </b> 
-        <%= racket.description %>
+    <%= racket.description %>
+    <br>
+    <%= link_to "Write a review", new_racket_review_path(racket.id) %>
     </li>
     
     <%end%>
