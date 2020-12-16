@@ -9,9 +9,10 @@
     <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <div>
-  <%= link_to "Log Out", logout_path, method: :delete %>
-    
-    <%= link_to "Add a new racket", new_racket_path %>
+  <%= link_to "Sign Up", signup_path %> |
+  <%= link_to "Log In", login_path %> | 
+  <%= link_to "Log Out", logout_path, method: :delete %> |
+  <%= link_to "Add a new racket", new_racket_path %>
     </div>
 
   <body>
