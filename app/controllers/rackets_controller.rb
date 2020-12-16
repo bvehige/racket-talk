@@ -20,6 +20,10 @@ class RacketsController < ApplicationController
         end
     end
 
+    def show
+        @racket = Racket.find_by_id(params[:id])
+    end
+
 
     private
 
