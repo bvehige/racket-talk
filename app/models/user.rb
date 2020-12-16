@@ -4,6 +4,6 @@ class User < ApplicationRecord
     has_many :rackets 
     has_secure_password
 
-    validates_confirmation_of :password
-    #validates :username, uniqueness: true, prescence: true
+    validates :username, uniqueness: true, presence: true
+    validates :password, presence: true
 end

@@ -1,5 +1,7 @@
 <h1>Add A Review for <%= @review.racket.brand.name%> <%= @review.racket.racket_name%></h1>
 
+<%= render partial: "layouts/errors", locals: {object: @review} %>
+
 <%= form_for(@review) do |f| %>
     <div>
     <%= f.label :stars %>

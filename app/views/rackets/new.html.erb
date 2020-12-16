@@ -1,5 +1,7 @@
 <h1>Add A New Racket</h1>
 
+<%= render partial: "layouts/errors", locals: {object: @racket} %>
+
 <%= form_for(@racket) do |f| %>
     <div>
     <%= f.label :racket_name %>
@@ -24,5 +26,5 @@
         <% end %>
     </div>
 <br>
-    <%= f.submit "Add New Racket" %>
+    <%= f.submit "Submit Review" %>
 <% end %>
