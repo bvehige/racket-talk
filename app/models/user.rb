@@ -4,7 +4,7 @@ class User < ApplicationRecord
     has_many :rackets #that user has created
     
     validates :username, uniqueness: true, presence: true
-    validates :email, presence: true
+    #validates :email, presence: true
 
     has_secure_password
 
