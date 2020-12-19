@@ -2,10 +2,11 @@ class ReviewsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def new
-        @racket = Racket.find_by_id(params[:racket_id])
+        if @racket = Racket.find_by_id(params[:racket_id])
         @review = @racket.reviews.build
-    else
+        else
         @review = Review.new
+    end
         
     end
 

@@ -3,7 +3,7 @@
 <ol>
 <% @reviews.each do |r| %>
     <li>
-    <%= r.racket.racket_name%> <%= r.title %> - <%= r.stars %> stars
+    <b><%= r.racket.racket_name%>:</b> <%= r.title %> - <%= r.stars %> stars
     </li>
 <% end %>
 </ol>

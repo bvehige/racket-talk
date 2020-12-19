@@ -7,8 +7,8 @@ class RacketsController < ApplicationController
 
     
     def new
-     @racket = Racket.new
-     @racket.build_brand
+        @racket = Racket.new
+        @racket.build_brand
     end
 
     def create
@@ -17,12 +17,21 @@ class RacketsController < ApplicationController
         if @racket.save
             redirect_to racket_path(@racket)
         else
+            @racket.build_brand
             render :new 
         end
     end
 
     def show
         @racket = Racket.find_by_id(params[:id])
+    end
+
+    def edit
+
+    end
+
+    def update
+        
     end
 
 

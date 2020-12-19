@@ -1,2 +1,12 @@
 <h1> <%= @racket.racket_name %> </h1>
 
+<h2> <%= @racket.brand.name %> </h2>
+
+<div>
+<%= @racket.description %>
+</div>
+
+<h3>Submitted By: <%= @racket.user.username %> on <%=@racket.created_at %> </h3>
+
+
+
