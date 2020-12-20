@@ -1,1 +1,7 @@
-<h1>Welcome <%= @user.username %>!</h1>
+<h1>Welcome to <%= @user.username %>'s Page!</h1>
+<h3>Rackets reviewed by <%= @user.username %>: </h3>
+<ul>
+    <% @user.reviewed_rackets.each do |r|%>
+        <li> <%= link_to r.racket_name, racket_path(r)%> </li>
+    <%end%>
+</ul>

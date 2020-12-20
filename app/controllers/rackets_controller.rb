@@ -1,5 +1,5 @@
 class RacketsController < ApplicationController
-    #before_action :set_racket, only:[:show, :edit, :update]
+    
     before_action :redirect_if_not_logged_in
 
     def index
@@ -16,22 +16,23 @@ class RacketsController < ApplicationController
         @racket = Racket.new(racket_params)
         @racket.user_id = session[:user_id]
         if @racket.save
-            redirect_to rackets_path
+            redirect_to racket_path(@racket)
         else
             render :new 
         end
     end
 
     def show
-        binding.pry
-
+        binding.pry 
     end
 
     def edit
+        @racket = Racket.find_by(params[:id])
 
     end
 
     def update
+        binding.pry
 
     end
 

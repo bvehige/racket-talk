@@ -1,9 +1,12 @@
-<h1>All the Reviews</h2>
-
-<ol>
+<% if @racket %>
+    <h1>Reviews for <%= @racket.brand.name%> <%=@racket.racket_name%></h1>
+<%else%>
+<h1>All the Reviews</h1>
+<%end%>
+<ul>
 <% @reviews.each do |r| %>
     <li>
-    <b><%= r.racket.racket_name%>:</b> <%= r.title %> - <%= r.stars %> stars
+    <b><%= r.racket.racket_name%>:</b> <%= link_to r.title, review_path(r) %> - <%= r.stars %> stars
     </li>
 <% end %>
-</ol>
+</ul>
