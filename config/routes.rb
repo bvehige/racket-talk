@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get '/' => 'sessions#index'
+  root 'sessions#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   get '/logout' => 'sessions#destroy'
+  
 
   resources :reviews
   resources :rackets do 

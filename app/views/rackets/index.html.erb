@@ -3,7 +3,7 @@
 <ol>
 <% @rackets.each do |racket| %>
     <li>
-    <b><%= racket.brand.name %> <%= link_to racket.racket_name, racket_path(racket) %>  -  </b> 
+    <b><%= racket.brand.name %> <%= racket.racket_name%>  -  </b> 
     <%= racket.description %>
     <br>
     <%= link_to "Write a review", new_racket_review_path(racket.id) %>

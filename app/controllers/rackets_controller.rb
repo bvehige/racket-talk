@@ -1,4 +1,5 @@
 class RacketsController < ApplicationController
+    #before_action :set_racket, only:[:show, :edit, :update]
     before_action :redirect_if_not_logged_in
 
     def index
@@ -15,15 +16,15 @@ class RacketsController < ApplicationController
         @racket = Racket.new(racket_params)
         @racket.user_id = session[:user_id]
         if @racket.save
-            redirect_to racket_path(@racket)
+            redirect_to rackets_path
         else
-            @racket.build_brand
             render :new 
         end
     end
 
     def show
-        @racket = Racket.find_by_id(params[:id])
+        binding.pry
+
     end
 
     def edit
@@ -31,7 +32,7 @@ class RacketsController < ApplicationController
     end
 
     def update
-        
+
     end
 
 
@@ -40,5 +41,10 @@ class RacketsController < ApplicationController
     def racket_params
         params.require(:racket).permit(:racket_name, :description, :brand_id, brand_attributes: [:name])
     end
+
+    # def set_racket
+    #     @racket = Racket.find_by(params[:id])
+    #     redirect_to rackets_path if !@racket
+    #  end
 
 end

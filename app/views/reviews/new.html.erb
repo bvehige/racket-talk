@@ -1,8 +1,16 @@
-<h1>Add A Review for <%= @review.racket.brand.name%> <%= @review.racket.racket_name%></h1>
+<%= display_header(@review)%>
 
 <%= render partial: "layouts/errors", locals: {object: @review} %>
 
 <%= form_for(@review) do |f| %>
+    <% if params[:racket_id] %>
+        <%= f.hidden_field :racket_id %>
+        <% else %>
+        <div>
+        <%= f.label :racket_id, "Select a Racket" %>
+        <%= f.collection_select :racket_id, Racket.all, :id, :racket_name, include_blank: "Select One"%> 
+        </div>
+        <% end %>
     <div>
     <%= f.label :stars %>
     <%= f.number_field :stars, min:0, max:5 %>
@@ -15,7 +23,6 @@
     <%= f.label :content %>
     <%= f.text_area :content, size: "25x10" %>
     </div>
-    <%= f.hidden_field :racket_id %>
-    <br>
+   
     <%= f.submit %>
 <% end %>

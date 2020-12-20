@@ -3,6 +3,7 @@
 <%= render partial: "layouts/errors", locals: {object: @racket} %>
 
 <%= form_for(@racket) do |f| %>
+    
     <div>
     <%= f.label :racket_name %>
     <%= f.text_field :racket_name %>
@@ -26,5 +27,5 @@
         <% end %>
     </div>
 <br>
-    <%= f.submit "Submit Review" %>
+    <%= f.submit "Submit" %>
 <% end %>
