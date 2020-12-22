@@ -1,3 +1,6 @@
-<%= @racket.racket_name %>
+<h1> <%= @racket.brand.name %> <%= @racket.racket_name %> </h1>
+<p> <%= @racket.description%> </p>
+<h4> Originally added by: <%= @racket.user.username%> on <%=@racket.created_at.strftime("%m/%d/%Y")%></h4>
+
 
 

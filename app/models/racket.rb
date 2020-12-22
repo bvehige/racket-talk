@@ -9,6 +9,7 @@ class Racket < ApplicationRecord
   validates :racket_name, uniqueness: {scope: :brand, message: "has already been created for this brand"}
   #validate :not_duplicate
 
+
   def not_duplicate
     #if brand and racket_name already exist, show an error message
     racket = Racket.find_by(racket_name: racket_name, brand_id: brand_id)

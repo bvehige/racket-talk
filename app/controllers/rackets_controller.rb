@@ -1,5 +1,5 @@
 class RacketsController < ApplicationController
-    
+    before_action :set_racket, only:[:show, :edit, :update]
     before_action :redirect_if_not_logged_in
 
     def index
@@ -23,29 +23,34 @@ class RacketsController < ApplicationController
     end
 
     def show
-        binding.pry 
+     
+        #@racket = Racket.find(params[:id]) 
     end
 
     def edit
-        @racket = Racket.find_by(params[:id])
-
+        #@racket = Racket.find_by(id: params[:id])
+        
     end
 
     def update
-        binding.pry
-
+        if @racket.update(racket_params)
+            redirect_to racket_path(@racket)
+        else
+            render :edit
+        end
+        
     end
 
 
     private
 
     def racket_params
-        params.require(:racket).permit(:racket_name, :description, :brand_id, brand_attributes: [:name])
+        params.require(:racket).permit(:racket_name, racket_id, :description, :brand_id, brand_attributes: [:name])
     end
 
-    # def set_racket
-    #     @racket = Racket.find_by(params[:id])
-    #     redirect_to rackets_path if !@racket
-    #  end
+    def set_racket
+        @racket = Racket.find_by(id: params[:id])
+        redirect_to rackets_path if !@racket
+    end
 
 end
