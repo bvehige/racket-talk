@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   #delete '/logout' => 'sessions#destroy'
   
 
-  resources :reviews
+  resources :reviews do
+    resources :comments
+  end
+
   resources :rackets do 
     resources :reviews, only: [:new, :index]
   end
