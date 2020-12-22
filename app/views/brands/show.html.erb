@@ -1,0 +1,8 @@
+<h1><%= @brand.name %> Rackets</h1>
+
+<ul>
+    <% @brand.rackets.each do |r|%>
+        <li> <%= link_to r.racket_name, racket_path(r)%> </li>
+    <%end%>
+</ul>
+
