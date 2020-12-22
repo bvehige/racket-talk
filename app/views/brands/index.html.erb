@@ -2,7 +2,7 @@
 
 <ol>
 <% @brands.each do |brand| %>
-    <li><%= brand.name%> <br>
+    <li><%=link_to brand.name, brand_path(brand)%> <br>
     </li>    
 <%end%>
 </ol>
