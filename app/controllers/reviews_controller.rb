@@ -6,8 +6,7 @@ class ReviewsController < ApplicationController
         @review = @racket.reviews.build
         else
         @review = Review.new
-    end
-        
+        end        
     end
 
     def index
@@ -34,6 +33,7 @@ class ReviewsController < ApplicationController
 
     def show
          @review = Review.find_by_id(params[:id])
+         
     end
 
     private
