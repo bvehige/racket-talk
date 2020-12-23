@@ -1,2 +1,9 @@
-Comment
-<%=@comment.content%>
+<h2>Comment Details: </h2>
+<h3>"<%=@comment.content%>"</h3> 
+<h5>Submitted By: <%=@comment.user.username%> on <%=@comment.updated_at.strftime("%I:%M %p on %m/%d/%Y")%></h5>
+
+<%if @comment.user == current_user%>
+    <%=link_to "Edit Comment", edit_comment_path(@comment)%>
+<%end%>
+
+<h4>See the orginal review here: <%=link_to @comment.review.title, review_path(@comment.review_id)%></h4>
