@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    #before_action :redirect_if_not_comment_author, only: [:edit, :update]
 
 
     def index
@@ -37,10 +38,16 @@ def show
 end
 
 def edit
-
+    @comment = Comment.find_by(id: params[:id])
 end
 
 def update
+    @comment = Comment.find_by(id: params[:id])
+    if @comment.update(comment_params)
+        redirect_to comment_path(@comment)
+    else
+        render :edit
+    end
 
 end
 
