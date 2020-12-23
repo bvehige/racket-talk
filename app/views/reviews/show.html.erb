@@ -4,5 +4,15 @@
 
 <p> <%= @review.content%> </p>
 
-<p><%= link_to 'Add a comment', new_review_comment_path(@review)%></p>
 
+
+<% if !@review.comments.empty? %>
+
+<h4>Latest Review Comments:</h4>
+<% @review.comments.order(updated_at: :desc).limit(4).each do |c|%>
+    <li>
+    <b><%=c.user.username%></b> says "<%=link_to c.content, review_comment_path(@review,c)%>" at <%=c.updated_at.strftime("%I:%M %p on %m/%d/%Y")%>
+    </li>
+    <%end%>
+<%end%>
+<p><%= link_to 'Add New Comment', new_review_comment_path(@review)%> | <%=link_to 'View All Comments', review_comments_path(@review)%></p>
