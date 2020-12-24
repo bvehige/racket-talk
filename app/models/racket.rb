@@ -19,7 +19,7 @@ class Racket < ApplicationRecord
   end
 
   def brand_and_racket 
-    "#{brand.name}" "#{racket_name}"
+    "#{brand.name} #{racket_name}"
   end
 
 end
