@@ -6,8 +6,8 @@ class Racket < ApplicationRecord
   #accepts_nested_attributes_for :brand
 
   validates :racket_name, presence: true
-  #validates :racket_name, uniqueness: {scope: :brand, message: "has already been created for this brand"}
-  validate :not_duplicate
+  validates :racket_name, uniqueness: {scope: :brand, message: "has already been created for this brand"}
+  #validate :not_duplicate
 
 
   def brand_attributes=(attributes)
