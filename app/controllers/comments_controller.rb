@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    #before_action :redirect_if_not_comment_author, only: [:edit, :update]
+    
 
 
     def index
@@ -38,6 +38,7 @@ end
 
 def edit
     @comment = Comment.find_by(id: params[:id])
+    
 end
 
 def update
