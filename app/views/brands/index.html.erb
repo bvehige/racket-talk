@@ -1,7 +1,7 @@
 <h1>All Brands</h1>
 
 <ol>
-<% @brands.each do |brand| %>
+<% @brands.uniq.each do |brand| %>
     <li><%=link_to brand.name, brand_path(brand)%> <br>
     </li>    
 <%end%>
