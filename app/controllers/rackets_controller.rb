@@ -38,14 +38,14 @@ class RacketsController < ApplicationController
         else
             render :edit
         end
-        
+
     end
 
 
     private
 
     def racket_params
-        params.require(:racket).permit(:racket_name, racket_id, :description, :brand_id, brand_attributes: [:name])
+        params.require(:racket).permit(:racket_name, :description, :brand_id, brand_attributes: [:name])
     end
 
     def set_racket

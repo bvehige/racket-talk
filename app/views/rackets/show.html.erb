@@ -1,8 +1,8 @@
 <h1> <%= @racket.brand.name %> <%= @racket.racket_name %> </h1>
 <p> <%= @racket.description%> </p>
-<p> Originally added by: <%= @racket.user.username%> on <%=@racket.created_at.strftime("%m/%d/%Y")%></p>
+<p> Originally added by: <%= @racket.user.username%> on <%=@racket.created_at.strftime("%m/%d/%Y")%></p> 
 
-<%= link_to "See all reviews for this racket", racket_reviews_path(@racket) %>
+<%= link_to "Add a new review for this racket", new_racket_review_path(@racket.id) %> | <%= link_to "See all reviews for this racket", racket_reviews_path(@racket) %>
 
 
 

@@ -17,4 +17,9 @@ class Racket < ApplicationRecord
       errors.add(:racket_name, 'already exists with that brand')
     end
   end
+
+  def brand_and_racket 
+    "#{brand.name}" "#{racket_name}"
+  end
+
 end

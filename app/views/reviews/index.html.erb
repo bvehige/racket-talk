@@ -6,7 +6,7 @@
 <ul>
 <% @reviews.each do |r| %>
     <li>
-    <b><%= r.racket.racket_name%>:</b> <%= link_to r.title, review_path(r) %> - <%= r.stars %> stars
+    <b><%= r.racket.brand.name%> <%= r.racket.racket_name%>:</b>  <%= link_to r.title, review_path(r) %> - <%= r.stars %> stars
     </li>
 <% end %>
 </ul>
