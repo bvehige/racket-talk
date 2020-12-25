@@ -8,7 +8,7 @@
         <% else %>
         <div>
         <%= f.label :racket_id, "Select a Racket" %>
-        <%= f.collection_select :racket_id, Racket.all, :id, :brand_and_racket, include_blank: "Select One"%> 
+        <%= f.collection_select :racket_id, Racket.order(:racket_name), :id, :brand_and_racket, include_blank: "Select One"%> 
         </div>
         <% end %>
     <div>

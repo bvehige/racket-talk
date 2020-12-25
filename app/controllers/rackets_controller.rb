@@ -3,7 +3,7 @@ class RacketsController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def index
-        @rackets = Racket.all
+        @rackets = Racket.order_by_rating
     end
 
     

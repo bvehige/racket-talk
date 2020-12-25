@@ -9,12 +9,14 @@ class Racket < ApplicationRecord
   validates :racket_name, uniqueness: {scope: :brand, message: "has already been created for this brand"}
   #validate :not_duplicate
 
+  scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(stars) desc')}
+
+
 
   def brand_attributes=(attributes)
     self.brand = Brand.find_or_create_by(attributes) if !attributes['name'].empty?
     self.brand
   end
-
   # def not_duplicate
   #   #if brand and racket_name already exist, show an error message
   #   racket = Racket.find_by(racket_name: racket_name, brand_id: brand_id)
@@ -24,7 +26,7 @@ class Racket < ApplicationRecord
   # end
 
   def brand_and_racket 
-    "#{brand.name} #{racket_name}"
+    "#{racket_name} - #{brand.name} "
   end
 
 end
