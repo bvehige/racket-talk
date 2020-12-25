@@ -10,15 +10,21 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
     </div>
-    <div>
-    <%= f.text_field :brand.name, list: "brands_autocomplete" %>
-    <datalist id="brands_autocomplete">
-        <% Brand.all.each do |brand| %>
-            <option value="<%=brand.name %>">
-            <%end%>
-            </datalist>
-    </div>
 
+    <p> Select a Brand that already exists </p>
+    <div>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name, include_blank: 'Select One' %>
+    </div>
+    
+    <p> Or create a new Brand </p>
+    <div>
+    <%= f.fields_for :brand do |b| %>
+        <%= b.label :name %>
+        <%= b.text_field :name %>
+
+        <% end %>
+    </div>
 <br>
     <%= f.submit "Submit" %>
 <% end %>
+

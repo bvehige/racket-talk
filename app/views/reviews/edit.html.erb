@@ -1,0 +1,22 @@
+<h1>Edit review for the <%= @review.racket.brand.name%> <%= @review.racket.racket_name%></h1>
+
+<%= render partial: "layouts/errors", locals: {object: @review} %>
+
+<%= form_for(@review) do |f| %>
+    <% params[:racket_id] %>
+        <%= f.hidden_field :racket_id %>
+    <div>
+    <%= f.label :stars %>
+    <%= f.number_field :stars, min:0, max:5 %>
+    </div>
+    <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    </div
+    <div>
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "25x10" %>
+    </div>
+   <br>
+    <%= f.submit %>
+<% end %>

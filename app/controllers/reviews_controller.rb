@@ -36,6 +36,27 @@ class ReviewsController < ApplicationController
          
     end
 
+    def edit
+        @review = Review.find_by_id(params[:id])
+        if @review.user == current_user
+            @review = Review.find_by_id(params[:id])
+        else
+            redirect_to review_path(@review)
+            flash[:message] = "You can only edit your own reviews"
+        end
+    end
+
+    def update
+        @review = Review.find_by(id: params[:id])
+    if @review.update(review_params)
+        redirect_to review_path(@review)
+        
+    else
+        render :edit
+    end
+
+    end
+
     private
 
     def review_params
