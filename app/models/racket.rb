@@ -11,8 +11,6 @@ class Racket < ApplicationRecord
 
   scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(stars) desc')}
 
-
-
   def brand_attributes=(attributes)
     self.brand = Brand.find_or_create_by(attributes) if !attributes['name'].empty?
     self.brand

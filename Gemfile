@@ -28,6 +28,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'execjs'
 gem 'therubyracer'
 gem 'pry'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'
+
 #gem 'webpacker', '~> 3.5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
