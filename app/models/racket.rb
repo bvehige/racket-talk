@@ -18,6 +18,7 @@ class Racket < ApplicationRecord
   end
 
   def avg_stars
+    binding.pry
     if racket.reiews.count < 1
       puts "Not Yet Reviewed"
     else
@@ -26,6 +27,8 @@ class Racket < ApplicationRecord
     end
 
   end
+
+
   # def not_duplicate
   #   #if brand and racket_name already exist, show an error message
   #   racket = Racket.find_by(racket_name: racket_name, brand_id: brand_id)

@@ -4,10 +4,17 @@
 <% @rackets.each do |racket| %>
     <li>
     <b><%= racket.brand.name %> <%= link_to racket.racket_name, racket_path(racket)%>  -  </b> 
-    <%= racket.description %> - Average Review is <%=racket.reviews.average(:stars).to_i%> stars. 
+    <%= racket.description %> - 
+    <% if racket.reviews.count < 1 %>
+    Not yet reviewed.
+    <%else%>
+    <%=racket.reviews.average(:stars).to_i%> stars.
+    <%end%> 
+   
     <br>
     <%= link_to "Write a review", new_racket_review_path(racket.id) %>
     </li>
     <br>
     <%end%>
 </ol>
+
