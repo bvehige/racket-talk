@@ -1,4 +1,6 @@
-
+<% if @review.image.attached? %>
+  <%= image_tag url_for(@review.image) %>
+<% end %>
 
 <h1><%= @review.racket.brand.name %> <%= @review.racket.racket_name %>: <%= @review.stars %> stars</h1>
 <h2><%= @review.title %></h2>

@@ -1,5 +1,9 @@
 <%= display_header(@review)%>
 
+<% if @review.racket.image.attached? %>
+  <%= image_tag url_for(@review.racket.image) %>
+<% end %>
+
 <%= render partial: "layouts/errors", locals: {object: @review} %>
 
 <%= form_for(@review) do |f| %>
@@ -23,6 +27,11 @@
     <%= f.label :content %>
     <%= f.text_area :content, size: "25x10" %>
     </div>
+    <div>
+    <%= f.label "Add a picture" %>
+    <%= f.file_field :image %>
+    </div>
+
    <br>
     <%= f.submit %>
 <% end %>

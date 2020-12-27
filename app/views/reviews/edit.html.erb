@@ -2,6 +2,10 @@
 
 <%= render partial: "layouts/errors", locals: {object: @review} %>
 
+<% if @review.image.attached? %>
+  <%= image_tag url_for(@review.image) %>
+<% end %>
+
 <%= form_for(@review) do |f| %>
     <% params[:racket_id] %>
         <%= f.hidden_field :racket_id %>
@@ -17,6 +21,11 @@
     <%= f.label :content %>
     <%= f.text_area :content, size: "25x10" %>
     </div>
+    <div>
+    <%= f.label "Add a picture" %>
+    <%= f.file_field :image %>
+    </div>
+
    <br>
     <%= f.submit %>
 <% end %>

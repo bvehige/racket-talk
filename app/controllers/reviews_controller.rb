@@ -24,6 +24,8 @@ class ReviewsController < ApplicationController
     def create
         @review = current_user.reviews.build(review_params)
         if @review.save
+            @review.image.purge
+            @review.image.attach(params[:review][:image])
         redirect_to review_path(@review)
         else
         render :new
@@ -49,6 +51,8 @@ class ReviewsController < ApplicationController
     def update
         @review = Review.find_by(id: params[:id])
     if @review.update(review_params)
+        @review.image.purge
+        @review.image.attach(params[:review][:image])
         redirect_to review_path(@review)
         
     else
