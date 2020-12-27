@@ -18,7 +18,7 @@ class User < ApplicationRecord
     end
 
     def self.create_by_github(auth)
-        self.find_or_create_by(username: auth[:info][:email]) do |user|
+        self.find_or_create_by(username: auth[:info][:nickname]) do |user|
             user.password = SecureRandom.hex
         end
     end

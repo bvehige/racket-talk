@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   get '/auth/google_oauth2/callback' => 'sessions#omniauth_google'
   get '/auth/github/callback' => 'sessions#omniauth_github'
-
+  #get '/auth/:provider/callback' => 'sessions#create'
+  
   resources :reviews do
     resources :comments
   end
