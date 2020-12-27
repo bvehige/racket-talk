@@ -1,0 +1,61 @@
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the content */
+.content {
+
+  background-color: #ddd;
+  /* background-image: url("rackets.jpg");
+  background-repeat: no-repeat;
+    background-size: cover; */
+  padding: 10px;
+  /* height: 450px; */
+}
+
+/* Style the footer */
+.footer {
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+
+/* body {
+    background-image: url("court_lines.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+h1 {
+    color: black;
+    margin-left: 20px;
+} */

@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="racket.css">
     <title>RacketTalk</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <div>
-    <%= navbar %>
-    
-    <% if flash[:message] %>
-    <div class="message"><h2>**<%= flash[:message] %>**</h2></div>
-    <% end %>
+  <body>
+  <div class="topnav">
+  <%= navbar %>
   </div>
 
-  <body>
+  <div class="content">
+  <% if flash[:message] %>
+    <div class="message"><h2>**<%= flash[:message] %>**</h2></div>
+    <% end %>
     <%= yield %>
+
+  </div>
+
+
   </body>
 </html>

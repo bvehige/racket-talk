@@ -1,6 +1,14 @@
 <% if @racket %>
     <h1>Reviews for <%= @racket.brand.name%> <%=@racket.racket_name%></h1>
 <%else%>
+
+<h1>5 Star Reviews</h1>
+<%@reviews.five_stars.each do |r|%>
+    <li>
+    <b><%= r.racket.brand.name%> <%= r.racket.racket_name%>:</b>  <%= link_to r.title, review_path(r) %>
+    </li>
+    <%end%>
+
 <h1>All the Reviews</h1>
 <%end%>
 <ul>

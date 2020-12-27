@@ -10,10 +10,21 @@ class Racket < ApplicationRecord
   #validate :not_duplicate
 
   scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(stars) desc')}
+  # scope :been_reviewed, -> {where }
 
   def brand_attributes=(attributes)
     self.brand = Brand.find_or_create_by(attributes) if !attributes['name'].empty?
     self.brand
+  end
+
+  def avg_stars
+    if racket.reiews.count < 1
+      puts "Not Yet Reviewed"
+    else
+    @stars = racket.reviews.average(:stars).to_i
+    puts "Average Review is #{@stars}s"
+    end
+
   end
   # def not_duplicate
   #   #if brand and racket_name already exist, show an error message
@@ -26,5 +37,6 @@ class Racket < ApplicationRecord
   def brand_and_racket 
     "#{racket_name} - #{brand.name} "
   end
+
 
 end

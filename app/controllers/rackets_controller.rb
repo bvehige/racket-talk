@@ -18,6 +18,7 @@ class RacketsController < ApplicationController
         if @racket.save
             redirect_to racket_path(@racket)
         else
+            @racket.build_brand
             render :new 
         end
     end
