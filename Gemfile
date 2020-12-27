@@ -30,6 +30,7 @@ gem 'therubyracer'
 gem 'pry'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
 gem 'dotenv-rails'
 
 #gem 'webpacker', '~> 3.5'

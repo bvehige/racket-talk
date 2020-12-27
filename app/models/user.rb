@@ -11,6 +11,17 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
     #validates :email, presence: true
 
-    
+    def self.create_by_google(auth)
+        self.find_or_create_by(username: auth[:info][:email]) do |user|
+            user.password = SecureRandom.hex
+        end
+    end
+
+    def self.create_by_github(auth)
+        self.find_or_create_by(username: auth[:info][:email]) do |user|
+            user.password = SecureRandom.hex
+        end
+    end
+
 
 end

@@ -20,12 +20,20 @@ class SessionsController < ApplicationController
 
     end
 
-    def omniauth
-        @user = User.find_or_create_by(username: auth[:info][:email]) do |user|
-            user.password = SecureRandom.hex
-        end
+    def omniauth_google
+        @user = User.create_by_google(auth)
+
         session[:user_id] = @user.id
         redirect_to user_path(@user)
+
+    end
+
+    def omniauth_github
+        @user = User.create_by_github(auth)
+
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+
 
     end
 

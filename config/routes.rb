@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   #delete '/logout' => 'sessions#destroy'
 
-  get '/auth/google_oauth2/callback' => 'sessions#omniauth'
-  
+  get '/auth/google_oauth2/callback' => 'sessions#omniauth_google'
+  get '/auth/github/callback' => 'sessions#omniauth_github'
 
   resources :reviews do
     resources :comments
