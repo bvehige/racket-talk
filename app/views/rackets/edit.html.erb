@@ -1,3 +1,7 @@
 <h1>Edit your Racket</h1>
+<% if @racket.image.attached? %>
+  <%= image_tag url_for(@racket.image) %>
+<% end %>
+<br>
 
 <%= render partial: 'form'%>

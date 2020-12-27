@@ -3,6 +3,7 @@ class Racket < ApplicationRecord
   belongs_to :user #who created it
   has_many :reviews
   has_many :users, through: :reviews #users who have reviewed it
+  has_one_attached :image
   #accepts_nested_attributes_for :brand
 
   validates :racket_name, presence: true
@@ -17,16 +18,16 @@ class Racket < ApplicationRecord
     self.brand
   end
 
-  def avg_stars
-    binding.pry
-    if racket.reiews.count < 1
-      puts "Not Yet Reviewed"
-    else
-    @stars = racket.reviews.average(:stars).to_i
-    puts "Average Review is #{@stars}s"
-    end
+  # def avg_stars
+  #   binding.pry
+  #   if racket.reiews.count < 1
+  #     puts "Not Yet Reviewed"
+  #   else
+  #   @stars = racket.reviews.average(:stars).to_i
+  #   puts "Average Review is #{@stars}s"
+  #   end
 
-  end
+  # end
 
 
   # def not_duplicate
