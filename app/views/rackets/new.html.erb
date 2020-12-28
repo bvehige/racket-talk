@@ -3,7 +3,7 @@
 <%= render partial: "layouts/errors", locals: {object: @racket} %>
 
 <%= form_for(@racket) do |f| %>
-    
+
     <p> Select a Brand that already exists </p>
     <div>
     <%= f.collection_select :brand_id, Brand.alphabetical, :id, :name, include_blank: 'Select One' %>

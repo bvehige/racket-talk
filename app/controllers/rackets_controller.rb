@@ -10,6 +10,7 @@ class RacketsController < ApplicationController
     def new
         @racket = Racket.new
         @racket.build_brand
+       
     end
 
     def create

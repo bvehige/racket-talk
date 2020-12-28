@@ -1,6 +1,6 @@
 <%= display_header(@review)%>
 
-<% if @review.racket.image.attached? %>
+<% if params[:racket_id] && @review.racket.image.attached? %>
   <%= image_tag url_for(@review.racket.image) %>
 <% end %>
 
