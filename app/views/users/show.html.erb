@@ -2,6 +2,12 @@
 <h3>Rackets reviewed by <%= @user.username %>: </h3>
 <ul>
     <% @user.reviewed_rackets.each do |r|%>
-        <li> <%= r.brand.name%> <%= link_to r.racket_name, racket_path(r)%> </li>
+        <li> <%= r.brand.name%> <%= link_to r.racket_name, racket_path(r)%> 
+        <br>
+        <% if r.image.attached?%>
+        <%= image_tag url_for(r.image)%> 
+        <%end%>
+        <br>
+        </li>
     <%end%>
 </ul>

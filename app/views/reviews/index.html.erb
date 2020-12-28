@@ -6,6 +6,10 @@
 <%@reviews.five_stars.each do |r|%>
     <li>
     <b><%= r.racket.brand.name%> <%= r.racket.racket_name%>:</b>  <%= link_to r.title, review_path(r) %>
+    <br>
+    <% if r.racket.image.attached?%>
+    <%= image_tag url_for(r.racket.image)%> 
+    <%end%>
     </li>
     <%end%>
 
@@ -15,10 +19,6 @@
 <% @reviews.each do |r| %>
     <li>
     <b><%= r.racket.brand.name%> <%= r.racket.racket_name%>:</b>  <%= link_to r.title, review_path(r) %> - <%= r.stars %> stars
-    <br>
-    <% if r.racket.image.attached?%>
-    <%= image_tag url_for(r.racket.image)%> 
-    <%end%>
     </li>
     <br>
 <% end %>
