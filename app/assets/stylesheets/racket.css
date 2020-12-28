@@ -34,10 +34,7 @@ body {
 /* Style the content */
 .content {
 
-  background-color: #ddd;
-  /* background-image: url("rackets.jpg");
-  background-repeat: no-repeat;
-    background-size: cover; */
+  background-color: #white;
   padding: 10px;
 }
 

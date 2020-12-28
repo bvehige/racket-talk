@@ -9,11 +9,15 @@
     Not yet reviewed.
     <%else%>
     <%=racket.reviews.average(:stars).to_i%> stars.
-    <%end%> 
-   
+    <%end%>
+    <br> 
+    <% if racket.image.attached?%>
+    <%= image_tag url_for(racket.image)%> 
+    <%end%>
     <br>
     <%= link_to "Write a review", new_racket_review_path(racket.id) %>
     </li>
+    <br>
     <br>
     <%end%>
 </ol>

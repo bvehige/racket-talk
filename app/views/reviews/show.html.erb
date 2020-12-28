@@ -1,5 +1,9 @@
 <% if @review.image.attached? %>
   <%= image_tag url_for(@review.image) %>
+  <%else%>
+   <% if @review.racket.image.attached? %>
+   <%= image_tag url_for(@review.racket.image)%>
+   <%end%>
 <% end %>
 
 <h1><%= @review.racket.brand.name %> <%= @review.racket.racket_name %>: <%= @review.stars %> stars</h1>
