@@ -1,6 +1,7 @@
 class Racket < ApplicationRecord
   belongs_to :brand
-  belongs_to :user #who created it
+  belongs_to :user
+  belongs_to :category #who created it
   has_many :reviews
   has_many :users, through: :reviews #users who have reviewed it
   has_one_attached :image
