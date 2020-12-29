@@ -23,6 +23,12 @@
 
   </div>
 
-
+  <div class="footer">
+  
+  <% if logged_in? %>
+    <i>Logged in as <%=current_user.username%></i>
+  <%end%>
+  </div>
+  
   </body>
 </html>

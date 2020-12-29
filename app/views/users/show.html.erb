@@ -1,13 +1,15 @@
 <h1>Welcome to <%= @user.username %>'s Page!</h1>
 <h3>Rackets reviewed by <%= @user.username %>: </h3>
 <ul>
-    <% @user.reviewed_rackets.each do |r|%>
-        <li> <%= r.brand.name%> <%= link_to r.racket_name, racket_path(r)%> 
-        <br>
+    <% @user.reviews.each do |r|%>
+        <li> 
+        <%= r.racket.brand.name%> <%= r.racket.racket_name%> - <%= link_to r.title, review_path(r)%> 
         <% if r.image.attached?%>
         <%= image_tag url_for(r.image)%> 
         <%end%>
         <br>
+        Submitted on <%=r.created_at.strftime("%m/%d/%Y")%>
+        <br><br> 
         </li>
     <%end%>
 </ul>

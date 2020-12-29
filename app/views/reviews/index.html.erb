@@ -10,6 +10,8 @@
     <% if r.racket.image.attached?%>
     <%= image_tag url_for(r.racket.image)%> 
     <%end%>
+    <br>
+    Submitted by <%=r.user.username%>.
     </li>
     <%end%>
 
@@ -19,6 +21,8 @@
 <% @reviews.each do |r| %>
     <li>
     <b><%= r.racket.brand.name%> <%= r.racket.racket_name%>:</b>  <%= link_to r.title, review_path(r) %> - <%= r.stars %> stars
+    <br>
+    Submitted by <%=r.user.username%>.
     </li>
     <br>
 <% end %>

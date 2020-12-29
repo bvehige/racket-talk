@@ -38,6 +38,12 @@ end
 
 def edit
     @comment = Comment.find_by(id: params[:id])
+    if @comment.user == current_user
+        @comment = Comment.find_by_id(params[:id])
+    else
+        redirect_to comment_path(@comment)
+        flash[:message] = "You can only edit your own comments"
+    end
     
 end
 
