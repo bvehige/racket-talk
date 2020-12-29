@@ -4,6 +4,7 @@
     <% @user.reviews.each do |r|%>
         <li> 
         <%= r.racket.brand.name%> <%= r.racket.racket_name%> - <%= link_to r.title, review_path(r)%> 
+        <br>
         <% if r.image.attached?%>
         <%= image_tag url_for(r.image)%> 
         <%end%>
