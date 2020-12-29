@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
     validates :username, presence: true
     validates :username, uniqueness: true
-    #validates :email, presence: true
+    validates :email, presence: true
 
     def self.create_by_google(auth)
         self.find_or_create_by(username: auth[:info][:email]) do |user|
