@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
 def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-        redirect_to comments_path
+        redirect_to review_path(@comment.review)
     else
         render :new
     end

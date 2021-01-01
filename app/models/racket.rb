@@ -29,18 +29,8 @@ class Racket < ApplicationRecord
 
   # end
 
-
-  # def not_duplicate
-  #   #if brand and racket_name already exist, show an error message
-  #   racket = Racket.find_by(racket_name: racket_name, brand_id: brand_id)
-  #   if !!racket && racket !=self 
-  #     errors.add(:racket_name, 'already exists with that brand')
-  #   end
-  # end
-
   def brand_and_racket 
     "#{racket_name} - #{brand.name} "
   end
-
 
 end

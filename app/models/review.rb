@@ -10,5 +10,5 @@ class Review < ApplicationRecord
   validates :racket, uniqueness: {scope: :user_id, message: "has already been reviewed by this user"}
 
   scope :five_stars, -> {where("stars > '4'")}
-  #scope :five_stars_alpha, -> {five_stars.order(:racket_id)}
+
 end
