@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :categories
   resources :comments
   root 'sessions#index'
   get '/login' => 'sessions#new'
