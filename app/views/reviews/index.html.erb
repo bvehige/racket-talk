@@ -14,7 +14,14 @@
     Submitted by <%=r.user.username%>.
     </li>
     <%end%>
-
+    <br>
+    <h1>Newest Review</h1>
+    <li>
+    <b><%= @reviews.last.racket.brand.name%> <%= @reviews.last.racket.racket_name%></b>:  <%= link_to @reviews.last.title, review_path(@reviews.last)%> - Submitted by <%= @reviews.last.user.username%> on <%=@reviews.last.created_at.strftime("%m/%d/%Y")%>
+    </li>
+    
+    
+    <br>
 <h1>All the Reviews</h1>
 <%end%>
 <ul>
