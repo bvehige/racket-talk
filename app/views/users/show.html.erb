@@ -14,3 +14,14 @@
         </li>
     <%end%>
 </ul>
+
+<h3><%=@user.username%>'s Comments: </h3>
+<ul>
+    <% @user.comments.each do |c|%>
+        <li>
+        Review: <%= c.review.title%> - <%=@user.username%> said "<%=c.content%>" 
+        <%= link_to "Edit this comment", edit_comment_path(c)%>
+        </li>
+    <%end%>
+
+</ul>

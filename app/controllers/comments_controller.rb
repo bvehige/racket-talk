@@ -57,6 +57,12 @@ def update
 
 end
 
+def destroy
+    Comment.find(params[:id]).destroy
+    redirect_to user_path
+end
+
+
 private
 
 def comment_params

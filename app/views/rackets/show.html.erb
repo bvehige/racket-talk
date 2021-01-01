@@ -7,7 +7,7 @@
 <h1> <%= @racket.brand.name %> <%= @racket.racket_name %> </h1>
 <p> <%= @racket.description%> </p>
 <p>Originally added on <%=@racket.created_at.strftime("%m/%d/%Y")%></p> 
-<% if @racket.updated_at?%>
+<% if @racket.created_at != @racket.updated_at%>
 <p>Updated on <%=@racket.updated_at.strftime("%m/%d/%Y")%></p>
 <%end%>
 
