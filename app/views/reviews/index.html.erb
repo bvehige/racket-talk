@@ -2,19 +2,7 @@
     <h1>Reviews for <%= @racket.brand.name%> <%=@racket.racket_name%></h1>
 <%else%>
 
-<h1>5 Star Reviews</h1>
-<%@reviews.five_stars.each do |r|%>
-    <li>
-    <b><%= r.racket.brand.name%> <%= r.racket.racket_name%>:</b>  <%= link_to r.title, review_path(r) %>
-    <br>
-    <% if r.racket.image.attached?%>
-    <%= image_tag r.racket.image%> 
-    <%end%>
-    <br>
-    Submitted by <%=r.user.username%>.
-    </li>
-    <%end%>
-    <br>
+
     <h1>Newest Review</h1>
     <li>
     <b><%= @reviews.last.racket.brand.name%> <%= @reviews.last.racket.racket_name%></b>:  <%= link_to @reviews.last.title, review_path(@reviews.last)%> - Submitted by <%= @reviews.last.user.username%> on <%=@reviews.last.created_at.strftime("%m/%d/%Y")%>

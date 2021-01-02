@@ -2,7 +2,17 @@
 
 <% Review.five_stars.each do |r|%>
     <li>
-    <%=r.racket.brand.name%> <%=r.racket.racket_name%>:  <%=link_to r.title, review_path(r)%> - Submitted by <%=r.user.username%>
+    <%=r.racket.brand.name%> <%=r.racket.racket_name%>:  <%=link_to r.title, review_path(r)%> 
+    <br>
+        <% if r.image.attached? %>
+        <%= image_tag r.image %>
+        <%else%>
+        <% if r.racket.image.attached? %>
+        <%= image_tag r.racket.image%>
+        <%end%>
+    <% end %>
+    <br>
+    Submitted by <%=r.user.username%>
     </li>
     <br>
 <%end%> 
