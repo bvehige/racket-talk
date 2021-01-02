@@ -3,7 +3,7 @@
 <%= render partial: "layouts/errors", locals: {object: @review} %>
 
 <% if @review.image.attached? %>
-  <%= image_tag url_for(@review.image) %>
+  <%= image_tag @review.image%>
 <% end %>
 
 <%= form_for(@review) do |f| %>

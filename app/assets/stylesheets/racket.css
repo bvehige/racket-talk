@@ -44,6 +44,13 @@ body {
   padding: 10px;
 }
 
+.box {
+    height: 100%;
+    width: 100%;
+    background-image: url("court_lines.jpg"); 
+    background-size: cover;
+}
+
 
 /* body {
     background-image: url("court_lines.jpg");

@@ -12,7 +12,7 @@
     <%end%>
     <br> 
     <% if racket.image.attached?%>
-    <%= image_tag url_for(racket.image)%> 
+    <%= image_tag racket.image%> 
     <%end%>
     <br>
     <%= link_to "Write a review", new_racket_review_path(racket.id) %>

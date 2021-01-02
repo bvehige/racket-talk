@@ -1,9 +1,7 @@
 <h1>Edit your Racket</h1>
 
-<%= render partial: "layouts/errors", locals: {object: @racket} %>
-
 <% if @racket.image.attached? %>
-  <%= image_tag url_for(@racket.image) %>
+  <%= image_tag @racket.image %>
 <% end %>
 <br>
 

@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get '/auth/github/callback' => 'sessions#omniauth_github'
   #get '/auth/:provider/callback' => 'sessions#create'
   delete 'comment/:id' => 'comment#destroy'
-  
+
+  get '/reviews/fivestars' => 'reviews#fivestars'
+
   resources :reviews do
     resources :comments
   end

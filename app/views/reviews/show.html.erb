@@ -1,8 +1,8 @@
 <% if @review.image.attached? %>
-  <%= image_tag url_for(@review.image) %>
+  <%= image_tag @review.image %>
   <%else%>
    <% if @review.racket.image.attached? %>
-   <%= image_tag url_for(@review.racket.image)%>
+   <%= image_tag @review.racket.image%>
    <%end%>
 <% end %>
 

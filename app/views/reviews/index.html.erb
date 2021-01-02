@@ -8,7 +8,7 @@
     <b><%= r.racket.brand.name%> <%= r.racket.racket_name%>:</b>  <%= link_to r.title, review_path(r) %>
     <br>
     <% if r.racket.image.attached?%>
-    <%= image_tag url_for(r.racket.image)%> 
+    <%= image_tag r.racket.image%> 
     <%end%>
     <br>
     Submitted by <%=r.user.username%>.

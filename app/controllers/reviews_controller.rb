@@ -59,6 +59,11 @@ class ReviewsController < ApplicationController
         render :edit
     end
 
+    def fivestars
+        @reviews = Review.five_stars
+    end
+
+
     end
 
     private

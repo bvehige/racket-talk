@@ -23,5 +23,9 @@ class User < ApplicationRecord
         end
     end
 
+    def self.activity
+        joins(:reviews).group(:user_id).order("count(user_id) DESC")
+    end
+
 
 end

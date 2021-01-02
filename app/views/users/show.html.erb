@@ -6,7 +6,7 @@
         <%= r.racket.brand.name%> <%= r.racket.racket_name%> - <%= link_to r.title, review_path(r)%> 
         <br>
         <% if r.image.attached?%>
-        <%= image_tag url_for(r.image)%> 
+        <%= image_tag r.image%> 
         <%end%>
         <br>
         Submitted on <%=r.created_at.strftime("%m/%d/%Y")%>

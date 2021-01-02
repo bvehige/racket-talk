@@ -32,6 +32,8 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'dotenv-rails'
+gem 'image_processing'
+gem 'mini_magick'
 
 #gem 'webpacker', '~> 3.5'
 # Use Active Storage variant

@@ -1,0 +1,10 @@
+<h1>Five Star Reviews</h1>
+
+<% Review.five_stars.each do |r|%>
+    <li>
+    <%=r.racket.brand.name%> <%=r.racket.racket_name%>:  <%=link_to r.title, review_path(r)%> - Submitted by <%=r.user.username%>
+    </li>
+    <br>
+<%end%> 
+
+

@@ -1,7 +1,7 @@
 
 
 <% if @racket.image.attached? %>
-  <%= image_tag url_for(@racket.image) %>
+  <%= image_tag @racket.image %>
 <% end %>
 
 <h1> <%= @racket.brand.name %> <%= @racket.racket_name %> </h1>

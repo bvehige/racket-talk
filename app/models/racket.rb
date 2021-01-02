@@ -18,6 +18,10 @@ class Racket < ApplicationRecord
     self.brand
   end
 
+  def self.most_reviewed
+    left_joins(:reviews).group(:racket_id)
+  end
+
   # def avg_stars
   #   binding.pry
   #   if racket.reiews.count < 1
