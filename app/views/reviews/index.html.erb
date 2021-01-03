@@ -5,7 +5,8 @@
 
     <h1>Newest Review</h1>
     <li>
-    <b><%= @reviews.last.racket.brand.name%> <%= @reviews.last.racket.racket_name%></b>:  <%= link_to @reviews.last.title, review_path(@reviews.last)%> - Submitted by <%= @reviews.last.user.username%> on <%=@reviews.last.created_at.strftime("%m/%d/%Y")%>
+    <b><%= @reviews.last.racket.brand.name%> <%= @reviews.last.racket.racket_name%></b>:  <%= link_to @reviews.last.title, review_path(@reviews.last)%> - <%= @reviews.last.stars%> Stars;   
+        <i>Submitted by <%= @reviews.last.user.username%> on <%=@reviews.last.created_at.strftime("%m/%d/%Y")%></i>
     </li>
     
     
@@ -17,7 +18,7 @@
     <li>
     <b><%= r.racket.brand.name%> <%= r.racket.racket_name%>:</b>  <%= link_to r.title, review_path(r) %> - <%= r.stars %> stars
     <br>
-    Submitted by <%=r.user.username%>.
+    <i>Submitted by <%=r.user.username%></i>
     </li>
     <br>
 <% end %>
