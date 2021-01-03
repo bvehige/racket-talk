@@ -41,7 +41,7 @@ body {
   box-shadow: 0px 0px 10px 2px grey;
   border: 1px solid black;  
   background-color: #A2CEE0;
-  padding: 10px;
+  padding: 5px;
   text-align: auto;
 }
 
@@ -49,7 +49,7 @@ body {
 .footer {
   padding: 10px;
   color: white;
-  align: bottom;
+  align: center;
 }
 
 /* .box {
