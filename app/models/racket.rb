@@ -22,6 +22,10 @@ class Racket < ApplicationRecord
     left_joins(:reviews).group(:racket_id)
   end
 
+  def thumbnail
+    self.image.variant(resize: "80x120")
+  end
+
   # def avg_stars
   #   binding.pry
   #   if racket.reiews.count < 1

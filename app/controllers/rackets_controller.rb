@@ -37,10 +37,13 @@ class RacketsController < ApplicationController
     end
 
     def update
+        
         if @racket.update(racket_params)
-            @racket.image.purge
-            @racket.image.attach(params[:racket][:image])
-            redirect_to racket_path(@racket)
+            if params[:racket][:image]
+                @racket.image.purge
+                @racket.image.attach(params[:racket][:image])
+            end
+        redirect_to racket_path(@racket)
         else
             render :edit
         end
