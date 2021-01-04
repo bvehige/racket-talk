@@ -5,7 +5,7 @@
 <% if @review.image.attached? %>
   <%= image_tag @review.image%>
 <% end %>
-
+<div>
 <%= form_for(@review) do |f| %>
     <% params[:racket_id] %>
         <%= f.hidden_field :racket_id %>
@@ -29,3 +29,4 @@
    <br>
     <%= f.submit %>
 <% end %>
+</div>
