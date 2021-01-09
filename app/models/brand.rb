@@ -4,4 +4,5 @@ class Brand < ApplicationRecord
     validates :name, presence: true
 
     scope :alphabetical, -> {order(:name)}
+    scope :search, -> (query){where("name LIKE ?", "%#{query}%")}
 end

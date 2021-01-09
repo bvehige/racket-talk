@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :comments
+  
   root 'sessions#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -22,9 +22,17 @@ Rails.application.routes.draw do
   resources :rackets do 
     resources :reviews, only: [:new, :index]
   end
-  resources :brands do
+  resources :brands, only: [:index, :show] do 
     resources :rackets
   end
   resources :users
+  resources :comments
+
+  #If no route matches
+  # Rails.application.routes.draw do
+  #   # all your other routes
+  #   match '*unmatched', to: 'application#route_not_found', via: :all
+  # end
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

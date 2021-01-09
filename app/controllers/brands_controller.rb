@@ -7,8 +7,12 @@ def index
 end
 
 def show
-   @brand = Brand.find_by(id: params[:id])
-
+    if Brand.find_by(id: params[:id])
+        @brand = Brand.find_by(id: params[:id])
+    else
+        redirect_to brands_path
+    end
+    
 end
 
 

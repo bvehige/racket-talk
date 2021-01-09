@@ -1,5 +1,13 @@
 <h1>All Rackets</h1>
 
+<%= form_with url: "/rackets", method: :get do |form| %>
+    <%= form.label :query, "Search for a racket:" %>
+    <%= form.text_field :query %>
+    <%= form.submit "Search" %>
+  <% end %>
+  <br>
+
+
 <ol>
 <% @rackets.each do |racket| %>
     <li>

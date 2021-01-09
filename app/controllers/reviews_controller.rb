@@ -1,8 +1,9 @@
 class ReviewsController < ApplicationController
-    before_action :redirect_if_not_logged_in
+    # before_action :redirect_if_not_logged_in
 
     def new
-        if @racket = Racket.find_by_id(params[:racket_id])
+        if params[:racket_id] && Racket.find_by_id(params[:racket_id])
+        @racket = Racket.find_by_id(params[:racket_id])
         @review = @racket.reviews.build
         else
         @review = Review.new
@@ -17,6 +18,7 @@ class ReviewsController < ApplicationController
         else
         #if it's not nested
             @reviews = Review.all
+            # @reviews = @reviews.search(params[:query]) if params[:query].present?
         end
 
     end
@@ -34,12 +36,17 @@ class ReviewsController < ApplicationController
     end
 
     def show
-         @review = Review.find_by_id(params[:id])
+        if Review.find_by_id(params[:id])
+            @review = Review.find_by_id(params[:id])
+        else
+            redirect_to reviews_path
+        end
          
     end
 
     def edit
         @review = Review.find_by_id(params[:id])
+
         if @review.user == current_user
             @review = Review.find_by_id(params[:id])
         else

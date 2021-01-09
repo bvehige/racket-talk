@@ -4,6 +4,8 @@ class RacketsController < ApplicationController
 
     def index
         @rackets = Racket.order_by_rating
+        @rackets = @rackets.search(params[:query]) if params[:query].present?
+    
     end
 
     

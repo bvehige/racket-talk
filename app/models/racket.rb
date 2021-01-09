@@ -1,6 +1,6 @@
 class Racket < ApplicationRecord
   belongs_to :brand
-  belongs_to :user
+  belongs_to :user #change this naming convention to reduce confusion.  
   has_many :reviews
   has_many :users, through: :reviews #users who have reviewed it
   has_one_attached :image
@@ -12,11 +12,21 @@ class Racket < ApplicationRecord
 
   scope :order_by_rating, -> {left_joins(:reviews).group(:id).order('avg(stars) desc')}
   # scope :been_reviewed, -> {where }
+  scope :search, -> (query){where("racket_name LIKE ?", "%#{query}%")}
 
   def brand_attributes=(attributes)
     self.brand = Brand.find_or_create_by(attributes) if !attributes['name'].empty?
     self.brand
   end
+
+  # def search(query)
+  #   if Racket.search(query)
+  #     Racket.search(query)
+  #   elsif Brand.search(query)
+  #     Brand.search(query)
+  #   end
+
+  # end
 
   def self.most_reviewed
     left_joins(:reviews).group(:racket_id)

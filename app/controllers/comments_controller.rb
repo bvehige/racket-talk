@@ -32,7 +32,11 @@ def create
 end
 
 def show
-    @comment = Comment.find_by(id: params[:id])
+    if Comment.find_by(id: params[:id])
+        @comment = Comment.find_by(id: params[:id])
+    else
+        redirect_to comments_path
+    end
 
 end
 
